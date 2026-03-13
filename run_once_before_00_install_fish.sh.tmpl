@@ -23,7 +23,7 @@ sudo apt-get -yq install fish
   {{- else if (eq .chezmoi.osRelease.id "debian") }}
 sudo apt-get update
 sudo apt-get -yq install fish
-  {{- else if (eq .chezmoi.osRelease.id "fedora") }}
+  {{- else if or (eq .chezmoi.osRelease.id "fedora") (eq .chezmoi.osRelease.id "rocky") }}
 sudo dnf -yq install fish
   {{- end }}
 {{- end }}
