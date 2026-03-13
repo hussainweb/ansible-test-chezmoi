@@ -17,13 +17,13 @@ brew install fish
 {{- if (eq .chezmoi.os "linux") }}
 export DEBIAN_FRONTEND=noninteractive
   {{- if (eq .chezmoi.osRelease.id "ubuntu") }}
-sudo apt-add-repository -y ppa:fish-shell/release-3
-sudo apt-get update
-sudo apt-get -yq install fish
+apt-add-repository -y ppa:fish-shell/release-3
+apt-get update
+apt-get -yq install fish
   {{- else if (eq .chezmoi.osRelease.id "debian") }}
-sudo apt-get update
-sudo apt-get -yq install fish
-  {{- else if or (eq .chezmoi.osRelease.id "fedora") (eq .chezmoi.osRelease.id "rocky") }}
-sudo dnf -yq install fish
+apt-get update
+apt-get -yq install fish
+  {{- else if or (eq .chezmoi.osRelease.id "fedora") (eq .chezmoi.osRelease.id "rocky") (contains "rhel" .chezmoi.osRelease.idLike) }}
+dnf -yq install fish
   {{- end }}
 {{- end }}
