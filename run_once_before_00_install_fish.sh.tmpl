@@ -15,6 +15,9 @@ brew install fish
 {{- end }}
 
 {{- if (eq .chezmoi.os "linux") }}
+# NOTE: sudo is not used here because this script is designed to run in a 
+# test environment where the user is already root. In a normal environment,
+# you would likely need to use sudo for these commands.
 export DEBIAN_FRONTEND=noninteractive
   {{- if (eq .chezmoi.osRelease.id "ubuntu") }}
 apt-add-repository -y ppa:fish-shell/release-3
